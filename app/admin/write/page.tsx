@@ -75,23 +75,29 @@ function WriteContent() {
         if (!file) return;
         setUploadingBanner(true);
         try {
-            // Optimize image (resize & compress)
-            const optimizedBlob = await optimizeImage(file);
-            const path = `${Date.now()}.jpg`; // Always jpg after optimization
+            // For now, let's try direct upload without optimization to rule out canvas issues
+            // If this works, we can re-enable optimization later
+            // const optimizedBlob = await optimizeImage(file);
 
-            const { error } = await supabase.storage.from('article_banners').upload(path, optimizedBlob, {
-                contentType: 'image/jpeg',
+            const ext = file.name.split('.').pop() || 'jpg';
+            const path = `${Date.now()}.${ext}`;
+
+            const { data, error } = await supabase.storage.from('article_banners').upload(path, file, {
                 cacheControl: '3600',
                 upsert: false
             });
-            if (error) throw error;
+
+            if (error) {
+                console.error('Supabase upload error:', error);
+                throw error;
+            }
 
             const { data: urlData } = supabase.storage.from('article_banners').getPublicUrl(path);
             setBannerUrl(urlData.publicUrl);
             toast.success('Banner uploaded');
         } catch (err) {
-            console.error('Upload error:', err);
-            toast.error('Failed to upload banner');
+            console.error('Upload catch error:', err);
+            toast.error(`Failed to upload: ${err instanceof Error ? err.message : 'Unknown error'}`);
         } finally {
             setUploadingBanner(false);
         }

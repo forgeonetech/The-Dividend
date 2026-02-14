@@ -45,6 +45,7 @@ export interface Article {
   seo_keywords: string;
   created_at: string;
   updated_at: string;
+  author_name?: string;
   // Joined fields
   author?: User;
   category?: Category;

@@ -323,13 +323,13 @@ export default function ArticlePage() {
                     <div className="flex flex-wrap items-center gap-4 text-sm text-muted-foreground">
                         <div className="flex items-center gap-2">
                             {article.author?.avatar_url ? (
-                                <img src={article.author.avatar_url} alt={article.author.name} className="w-8 h-8 rounded-full object-cover" />
+                                <img src={article.author.avatar_url} alt={article.author_name || article.author.name} className="w-8 h-8 rounded-full object-cover" />
                             ) : (
                                 <div className="w-8 h-8 rounded-full bg-accent-light text-accent flex items-center justify-center text-xs font-semibold">
-                                    {article.author?.name?.[0] || 'A'}
+                                    {(article.author_name || article.author?.name || 'A')[0]}
                                 </div>
                             )}
-                            <span className="font-medium text-foreground">{article.author?.name || 'Author'}</span>
+                            <span className="font-medium text-foreground">{article.author_name || article.author?.name || 'Author'}</span>
                         </div>
                         <span className="flex items-center gap-1"><LuCalendar size={14} /> {formatDate(article.created_at)}</span>
                         <span className="flex items-center gap-1"><LuClock size={14} /> {article.read_time} min read</span>
@@ -405,14 +405,14 @@ export default function ArticlePage() {
                         {article.author && (
                             <div className="p-6 bg-muted/50 border border-border rounded-xl mt-8 flex flex-col sm:flex-row items-start gap-4">
                                 {article.author.avatar_url ? (
-                                    <img src={article.author.avatar_url} alt={article.author.name} className="w-14 h-14 rounded-full object-cover shrink-0" />
+                                    <img src={article.author.avatar_url} alt={article.author_name || article.author.name} className="w-14 h-14 rounded-full object-cover shrink-0" />
                                 ) : (
                                     <div className="w-14 h-14 rounded-full bg-accent-light text-accent flex items-center justify-center font-bold text-lg shrink-0">
-                                        {article.author.name[0]}
+                                        {(article.author_name || article.author.name || 'A')[0]}
                                     </div>
                                 )}
                                 <div>
-                                    <h3 className="font-semibold text-foreground">{article.author.name}</h3>
+                                    <h3 className="font-semibold text-foreground">{article.author_name || article.author.name}</h3>
                                     <p className="text-sm text-muted-foreground mt-1">{article.author.bio || 'Author at The Dividend'}</p>
                                     {profile && profile.id !== article.author.id && (
                                         <Link

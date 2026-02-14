@@ -126,8 +126,8 @@ export default function ArticleCard({ article, variant = 'default' }: ArticleCar
                     <button
                         onClick={toggleBookmark}
                         className={`absolute top-3 right-3 w-8 h-8 rounded-lg flex items-center justify-center transition-all ${isBookmarked
-                                ? 'bg-accent text-white'
-                                : 'bg-white/80 text-gray-600 hover:bg-white hover:text-accent'
+                            ? 'bg-accent text-white'
+                            : 'bg-white/80 text-gray-600 hover:bg-white hover:text-accent'
                             }`}
                     >
                         <LuBookmark size={14} className={isBookmarked ? 'fill-current' : ''} />
@@ -143,17 +143,18 @@ export default function ArticleCard({ article, variant = 'default' }: ArticleCar
                     <p className="text-muted-foreground text-sm mt-2 leading-relaxed line-clamp-2">
                         {truncateText(article.excerpt || '', 120)}
                     </p>
+
                     <div className="flex items-center justify-between mt-4">
                         <div className="flex items-center gap-2">
                             {article.author?.avatar_url ? (
-                                <img src={article.author.avatar_url} alt={article.author.name} className="w-7 h-7 rounded-full object-cover" />
+                                <img src={article.author.avatar_url} alt={article.author_name || article.author.name} className="w-7 h-7 rounded-full object-cover" />
                             ) : (
                                 <div className="w-7 h-7 rounded-full bg-accent-light text-accent flex items-center justify-center text-xs font-semibold">
-                                    {article.author?.name?.[0] || 'A'}
+                                    {(article.author_name || article.author?.name || 'A')[0]}
                                 </div>
                             )}
-                            <span className="text-xs text-muted-foreground font-medium">
-                                {article.author?.name || 'Author'}
+                            <span className="text-xs text-muted-foreground font-medium truncate max-w-[100px]">
+                                {article.author_name || article.author?.name || 'Author'}
                             </span>
                         </div>
                         <div className="flex items-center gap-3 text-xs text-muted-foreground">
