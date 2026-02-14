@@ -105,3 +105,50 @@ export function extractTextFromContent(content: Record<string, unknown>): string
     };
     return extractText(content.content as unknown[]);
 }
+
+/**
+ * Optimize image before upload (client-side)
+ * Resizes to max width of 1920px and compresses to 0.8 quality JPEG
+ */
+export async function optimizeImage(file: File): Promise<Blob> {
+    return new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.readAsDataURL(file);
+        reader.onload = (event) => {
+            const img = new Image();
+            img.src = event.target?.result as string;
+            img.onload = () => {
+                const canvas = document.createElement('canvas');
+                const MAX_WIDTH = 1920;
+                const scaleSize = MAX_WIDTH / img.width;
+
+                // Only resize if wider than MAX_WIDTH, otherwise keep original dimensions
+                if (scaleSize < 1) {
+                    canvas.width = MAX_WIDTH;
+                    canvas.height = img.height * scaleSize;
+                } else {
+                    canvas.width = img.width;
+                    canvas.height = img.height;
+                }
+
+                const ctx = canvas.getContext('2d');
+                if (!ctx) {
+                    reject(new Error('Failed to get canvas context'));
+                    return;
+                }
+
+                ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+
+                canvas.toBlob((blob) => {
+                    if (blob) {
+                        resolve(blob);
+                    } else {
+                        reject(new Error('Failed to compress image'));
+                    }
+                }, 'image/jpeg', 0.8); // 80% quality JPEG
+            };
+            img.onerror = (error) => reject(error);
+        };
+        reader.onerror = (error) => reject(error);
+    });
+}

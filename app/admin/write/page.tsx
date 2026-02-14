@@ -5,7 +5,7 @@ import { useRouter, useSearchParams } from 'next/navigation';
 import { useAuth } from '@/lib/hooks/useAuth';
 import { createClient } from '@/lib/supabase/client';
 import type { Category } from '@/lib/types';
-import { generateSlug, calculateReadTime, extractTextFromContent } from '@/lib/utils';
+import { generateSlug, calculateReadTime, extractTextFromContent, optimizeImage } from '@/lib/utils';
 import { LuSave, LuEye, LuGlobe, LuImage, LuStar } from 'react-icons/lu';
 import toast from 'react-hot-toast';
 import dynamic from 'next/dynamic';
@@ -75,14 +75,22 @@ function WriteContent() {
         if (!file) return;
         setUploadingBanner(true);
         try {
-            const ext = file.name.split('.').pop();
-            const path = `${Date.now()}.${ext}`;
-            const { error } = await supabase.storage.from('article_banners').upload(path, file);
+            // Optimize image (resize & compress)
+            const optimizedBlob = await optimizeImage(file);
+            const path = `${Date.now()}.jpg`; // Always jpg after optimization
+
+            const { error } = await supabase.storage.from('article_banners').upload(path, optimizedBlob, {
+                contentType: 'image/jpeg',
+                cacheControl: '3600',
+                upsert: false
+            });
             if (error) throw error;
+
             const { data: urlData } = supabase.storage.from('article_banners').getPublicUrl(path);
             setBannerUrl(urlData.publicUrl);
             toast.success('Banner uploaded');
-        } catch {
+        } catch (err) {
+            console.error('Upload error:', err);
             toast.error('Failed to upload banner');
         } finally {
             setUploadingBanner(false);
@@ -117,19 +125,30 @@ function WriteContent() {
                 const { error } = await supabase.from('articles').update(articleData).eq('id', editId);
                 if (error) throw error;
                 toast.success(status === 'published' ? 'Article updated & published!' : 'Draft saved');
+
+                if (status === 'published') {
+                    router.push('/admin/posts');
+                }
+                // If draft, stay on page to continue editing
             } else {
-                const { error } = await supabase.from('articles').insert(articleData);
+                const { data, error } = await supabase.from('articles').insert(articleData).select().single();
                 if (error) throw error;
                 toast.success(status === 'published' ? 'Article published!' : 'Draft saved');
-            }
 
-            router.push('/admin/posts');
+                if (status === 'draft' && data) {
+                    // Switch to edit mode for the newly created draft
+                    router.push(`/admin/write?edit=${data.id}`);
+                } else {
+                    router.push('/admin/posts');
+                }
+            }
         } catch (err: unknown) {
             const msg = err instanceof Error ? err.message : 'Failed to save';
             toast.error(msg);
         } finally {
             setSaving(false);
         }
+
     };
 
     return (

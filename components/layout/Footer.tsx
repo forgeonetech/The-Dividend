@@ -20,7 +20,7 @@ export default function Footer() {
                             </span>
                         </Link>
                         <p className="text-muted-foreground text-sm leading-relaxed max-w-sm mb-6">
-                            A premium financial education and insight platform focused on long-term thinking, systems, wealth, and clarity. Invest in your mind.
+                            Success is a dividend wisdom pays, and over here we share the wisdom needed to get this dividend.
                         </p>
                         <div className="flex items-center gap-3">
                             <a href="#" className="w-9 h-9 rounded-lg bg-muted hover:bg-accent-light hover:text-accent text-muted-foreground flex items-center justify-center transition-all" aria-label="Twitter">
