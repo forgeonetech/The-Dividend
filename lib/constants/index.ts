@@ -4,7 +4,7 @@
 
 export const SITE_NAME = 'The Dividend';
 export const SITE_DESCRIPTION = 'A premium financial education and insight platform focused on long-term thinking, systems, wealth, and clarity.';
-export const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000';
+export const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://the-dividend.vercel.app';
 
 export const NAV_LINKS = [
     { label: 'Home', href: '/' },
