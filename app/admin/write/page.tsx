@@ -17,7 +17,7 @@ function WriteContent() {
     const searchParams = useSearchParams();
     const editId = searchParams.get('edit');
     const { profile } = useAuth();
-    const supabase = createClient();
+
 
     const [title, setTitle] = useState('');
     const [slug, setSlug] = useState('');
@@ -34,16 +34,16 @@ function WriteContent() {
 
     // Fetch categories
     useEffect(() => {
-        supabase.from('categories').select('*').order('name').then(({ data }) => {
+        createClient().from('categories').select('*').order('name').then(({ data }) => {
             setCategories(data || []);
         });
-    }, [supabase]);
+    }, []);
 
     // Load article for editing
     useEffect(() => {
         if (!editId) return;
         const loadArticle = async () => {
-            const { data } = await supabase
+            const { data } = await createClient()
                 .from('articles')
                 .select('*')
                 .eq('id', editId)
@@ -61,7 +61,7 @@ function WriteContent() {
             }
         };
         loadArticle();
-    }, [editId, supabase]);
+    }, [editId]);
 
     // Auto-generate slug from title
     useEffect(() => {
@@ -82,6 +82,7 @@ function WriteContent() {
             const ext = file.name.split('.').pop() || 'jpg';
             const path = `${Date.now()}.${ext}`;
 
+            const supabase = createClient();
             const { data, error } = await supabase.storage.from('article_banners').upload(path, file, {
                 cacheControl: '3600',
                 upsert: false
@@ -109,6 +110,7 @@ function WriteContent() {
 
         setSaving(true);
         try {
+            const supabase = createClient();
             const textContent = extractTextFromContent(content);
             const readTime = calculateReadTime(textContent);
 
@@ -174,7 +176,7 @@ function WriteContent() {
                     <button
                         onClick={() => handleSave('published')}
                         disabled={saving}
-                        className="flex items-center gap-1.5 px-4 py-2 bg-accent hover:bg-accent-hover text-white rounded-lg text-sm font-medium transition-all disabled:opacity-60"
+                        className="flex items-center gap-1.5 px-4 py-2 bg-accent hover:bg-accent-hover text-accent-foreground rounded-lg text-sm font-medium transition-all disabled:opacity-60"
                     >
                         <LuGlobe size={14} /> Publish
                     </button>

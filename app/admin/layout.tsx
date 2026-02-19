@@ -49,7 +49,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
                 <aside className="lg:w-56 shrink-0">
                     <div className="flex items-center gap-2 mb-6">
                         <div className="w-8 h-8 rounded-lg bg-accent flex items-center justify-center">
-                            <span className="text-white font-bold text-sm font-serif">D</span>
+                            <span className="text-accent-foreground font-bold text-sm font-serif">D</span>
                         </div>
                         <span className="font-bold text-foreground text-sm">Admin Panel</span>
                     </div>
@@ -57,7 +57,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
                     <nav className="flex lg:flex-col gap-1 overflow-x-auto hide-scrollbar">
                         <Link
                             href="/admin/write"
-                            className="flex items-center gap-2 px-3 py-2.5 bg-accent text-white rounded-lg text-sm font-medium mb-2 hover:bg-accent-hover transition-all"
+                            className="flex items-center gap-2 px-3 py-2.5 bg-accent text-accent-foreground rounded-lg text-sm font-medium mb-2 hover:bg-accent-hover transition-all"
                         >
                             <LuSquarePen size={16} /> New Post
                         </Link>

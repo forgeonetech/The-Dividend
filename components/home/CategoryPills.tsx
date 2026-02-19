@@ -30,7 +30,7 @@ export default function CategoryPills() {
         <div className="flex items-center gap-2 overflow-x-auto hide-scrollbar py-1">
             <Link
                 href="/blog"
-                className="shrink-0 px-4 py-2 rounded-full text-sm font-medium bg-accent text-white hover:bg-accent-hover transition-all"
+                className="shrink-0 px-4 py-2 rounded-full text-sm font-medium bg-accent text-accent-foreground hover:bg-accent-hover transition-all"
             >
                 All Topics
             </Link>

@@ -202,8 +202,8 @@ function BlogContent() {
                             key={i}
                             onClick={() => updateParams('page', String(i + 1))}
                             className={`w-9 h-9 rounded-lg text-sm font-medium transition-all ${page === i + 1
-                                    ? 'bg-accent text-white'
-                                    : 'bg-muted text-foreground hover:bg-border'
+                                ? 'bg-accent text-accent-foreground'
+                                : 'bg-muted text-foreground hover:bg-border'
                                 }`}
                         >
                             {i + 1}

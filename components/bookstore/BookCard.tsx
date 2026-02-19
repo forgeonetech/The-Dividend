@@ -26,7 +26,7 @@ export default function BookCard({ book }: BookCardProps) {
                         </div>
                     )}
                     {book.is_featured && (
-                        <span className="absolute top-3 left-3 px-2 py-0.5 bg-accent text-white text-xs font-semibold rounded-md">
+                        <span className="absolute top-3 left-3 px-2 py-0.5 bg-accent text-accent-foreground text-xs font-semibold rounded-md">
                             Featured
                         </span>
                     )}
@@ -40,7 +40,7 @@ export default function BookCard({ book }: BookCardProps) {
                     <p className="text-sm text-muted-foreground mt-0.5">{book.author}</p>
                     <div className="flex items-center justify-between mt-3">
                         <span className="text-lg font-bold text-accent">{formatPrice(book.price)}</span>
-                        <button className="w-8 h-8 rounded-lg bg-accent-light text-accent flex items-center justify-center hover:bg-accent hover:text-white transition-all">
+                        <button className="w-8 h-8 rounded-lg bg-accent-light text-accent flex items-center justify-center hover:bg-accent hover:text-accent-foreground transition-all">
                             <LuShoppingCart size={16} />
                         </button>
                     </div>

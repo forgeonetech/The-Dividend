@@ -60,7 +60,7 @@ export default function AdminPostsPage() {
                 <h1 className="text-2xl font-serif font-bold text-foreground">Posts</h1>
                 <Link
                     href="/admin/write"
-                    className="flex items-center gap-2 px-4 py-2 bg-accent hover:bg-accent-hover text-white rounded-lg text-sm font-medium transition-all"
+                    className="flex items-center gap-2 px-4 py-2 bg-accent hover:bg-accent-hover text-accent-foreground rounded-lg text-sm font-medium transition-all"
                 >
                     <LuSquarePen size={16} /> New Post
                 </Link>

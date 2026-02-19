@@ -102,7 +102,7 @@ export default function ProfilePage() {
                         <button
                             type="submit"
                             disabled={saving}
-                            className="px-6 py-2.5 bg-accent hover:bg-accent-hover text-white rounded-xl text-sm font-medium transition-all disabled:opacity-60"
+                            className="px-6 py-2.5 bg-accent hover:bg-accent-hover text-accent-foreground rounded-xl text-sm font-medium transition-all disabled:opacity-60"
                         >
                             {saving ? 'Saving...' : 'Save Changes'}
                         </button>

@@ -147,7 +147,7 @@ export default function Header() {
                         {isAdmin && (
                             <Link
                                 href="/admin/write"
-                                className="hidden sm:flex items-center gap-2 px-4 py-2 bg-accent hover:bg-accent-hover text-accent-background rounded-lg text-sm font-medium transition-all duration-200"
+                                className="hidden sm:flex items-center gap-2 px-4 py-2 bg-accent hover:bg-accent-hover text-accent-foreground rounded-lg text-sm font-medium transition-all duration-200"
                             >
                                 <LuSquarePen size={16} />
                                 Write

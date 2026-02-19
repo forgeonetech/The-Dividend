@@ -91,7 +91,7 @@ export default function AdminNotificationsPage() {
                     <button
                         type="submit"
                         disabled={sending}
-                        className="flex items-center gap-2 px-6 py-2.5 bg-accent hover:bg-accent-hover text-white rounded-lg text-sm font-medium transition-all disabled:opacity-60"
+                        className="flex items-center gap-2 px-6 py-2.5 bg-accent hover:bg-accent-hover text-accent-foreground rounded-lg text-sm font-medium transition-all disabled:opacity-60"
                     >
                         <LuSend size={14} />
                         {sending ? 'Sending...' : 'Send Notification'}

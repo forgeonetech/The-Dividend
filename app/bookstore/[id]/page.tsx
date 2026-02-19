@@ -103,7 +103,7 @@ export default function BookDetailPage() {
             <div className="max-w-4xl mx-auto px-4 py-20 text-center">
                 <h1 className="text-2xl font-serif font-bold text-foreground mb-4">Book Not Found</h1>
                 <p className="text-muted-foreground mb-8">This book doesn&apos;t exist or has been removed.</p>
-                <Link href="/bookstore" className="px-6 py-3 bg-accent hover:bg-accent-hover text-white rounded-xl font-medium transition-all text-sm">
+                <Link href="/bookstore" className="px-6 py-3 bg-accent hover:bg-accent-hover text-accent-foreground rounded-xl font-medium transition-all text-sm">
                     Browse Bookstore
                 </Link>
             </div>
@@ -163,7 +163,7 @@ export default function BookDetailPage() {
                         <button
                             onClick={handlePurchase}
                             disabled={purchasing}
-                            className="flex items-center gap-2 px-8 py-3 bg-accent hover:bg-accent-hover text-white rounded-xl font-medium transition-all disabled:opacity-60"
+                            className="flex items-center gap-2 px-8 py-3 bg-accent hover:bg-accent-hover text-accent-foreground rounded-xl font-medium transition-all disabled:opacity-60"
                         >
                             <LuShoppingCart size={18} />
                             {purchasing ? 'Processing...' : `Buy Now — ${formatPrice(book.price)}`}

@@ -40,7 +40,7 @@ export default function HomePage() {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
             <Link
               href="/signup"
-              className="text-white w-full sm:w-auto px-8 py-3 bg-accent hover:bg-accent-hover text-accent-foreground rounded-xl font-medium transition-all text-sm"
+              className="w-full sm:w-auto px-8 py-3 bg-accent hover:bg-accent-hover text-accent-foreground rounded-xl font-medium transition-all text-sm"
             >
               Create Free Account
             </Link>
@@ -57,7 +57,7 @@ export default function HomePage() {
       {/* Floating Action Button */}
       <Link
         href="/contact"
-        className="fixed bottom-6 right-6 w-14 h-14 bg-accent hover:bg-accent-hover text-accent-background rounded-full shadow-lg hover:shadow-xl flex items-center justify-center transition-all duration-300 hover:scale-110 z-30"
+        className="fixed bottom-6 right-6 w-14 h-14 bg-accent hover:bg-accent-hover text-accent-foreground rounded-full shadow-lg hover:shadow-xl flex items-center justify-center transition-all duration-300 hover:scale-110 z-30"
         aria-label="Contact"
       >
         <LuMessageSquare size={22} />

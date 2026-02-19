@@ -191,8 +191,8 @@ function MessagesContent() {
                                 {messages.map((msg) => (
                                     <div key={msg.id} className={`flex ${msg.sender_id === profile.id ? 'justify-end' : 'justify-start'}`}>
                                         <div className={`max-w-[70%] px-4 py-2.5 rounded-2xl text-sm ${msg.sender_id === profile.id
-                                                ? 'bg-accent text-white rounded-br-md'
-                                                : 'bg-muted text-foreground rounded-bl-md'
+                                            ? 'bg-accent text-accent-foreground rounded-br-md'
+                                            : 'bg-muted text-foreground rounded-bl-md'
                                             }`}>
                                             <p>{msg.content}</p>
                                             <p className={`text-[10px] mt-1 ${msg.sender_id === profile.id ? 'text-white/60' : 'text-muted-foreground'}`}>
@@ -215,7 +215,7 @@ function MessagesContent() {
                                 <button
                                     type="submit"
                                     disabled={sending || !input.trim()}
-                                    className="w-10 h-10 rounded-full bg-accent hover:bg-accent-hover text-white flex items-center justify-center transition-all disabled:opacity-50"
+                                    className="w-10 h-10 rounded-full bg-accent hover:bg-accent-hover text-accent-foreground flex items-center justify-center transition-all disabled:opacity-50"
                                 >
                                     <LuSend size={16} />
                                 </button>

@@ -43,7 +43,7 @@ export default function AdminBooksPage() {
                 <h1 className="text-2xl font-serif font-bold text-foreground">Books</h1>
                 <button
                     onClick={() => setShowAdd(!showAdd)}
-                    className="flex items-center gap-2 px-4 py-2 bg-accent hover:bg-accent-hover text-white rounded-lg text-sm font-medium transition-all"
+                    className="flex items-center gap-2 px-4 py-2 bg-accent hover:bg-accent-hover text-accent-foreground rounded-lg text-sm font-medium transition-all"
                 >
                     <LuPlus size={16} /> Add Book
                 </button>
@@ -158,12 +158,12 @@ function AddBookForm({ onComplete }: { onComplete: () => void }) {
                 </div>
                 <div>
                     <label className="block text-sm font-medium text-foreground mb-1">Cover Image</label>
-                    <input type="file" accept="image/*" onChange={handleCoverUpload} disabled={uploading} className="w-full text-sm text-muted-foreground file:mr-2 file:py-2 file:px-3 file:border-0 file:text-sm file:font-medium file:bg-accent file:text-white file:rounded-lg file:cursor-pointer" />
+                    <input type="file" accept="image/*" onChange={handleCoverUpload} disabled={uploading} className="w-full text-sm text-muted-foreground file:mr-2 file:py-2 file:px-3 file:border-0 file:text-sm file:font-medium file:bg-accent file:text-accent-foreground file:rounded-lg file:cursor-pointer" />
                 </div>
             </div>
             <div className="flex justify-end gap-2">
                 <button type="button" onClick={onComplete} className="px-4 py-2 text-sm text-muted-foreground hover:text-foreground transition-colors">Cancel</button>
-                <button type="submit" disabled={saving} className="px-4 py-2 bg-accent hover:bg-accent-hover text-white rounded-lg text-sm font-medium transition-all disabled:opacity-60">
+                <button type="submit" disabled={saving} className="px-4 py-2 bg-accent hover:bg-accent-hover text-accent-foreground rounded-lg text-sm font-medium transition-all disabled:opacity-60">
                     {saving ? 'Saving...' : 'Add Book'}
                 </button>
             </div>

@@ -32,7 +32,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
             <div className="max-w-[var(--max-width)] mx-auto px-4 py-20 text-center">
                 <h2 className="text-2xl font-serif font-bold text-foreground mb-4">Please sign in</h2>
                 <p className="text-muted-foreground mb-6">You need to be signed in to access your dashboard.</p>
-                <Link href="/login" className="px-6 py-3 bg-accent hover:bg-accent-hover text-white rounded-xl font-medium transition-all text-sm">
+                <Link href="/login" className="px-6 py-3 bg-accent hover:bg-accent-hover text-accent-foreground rounded-xl font-medium transition-all text-sm">
                     Sign In
                 </Link>
             </div>
@@ -67,8 +67,8 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
                                     key={item.href}
                                     href={item.href}
                                     className={`flex items-center gap-2.5 px-3 py-2.5 rounded-lg text-sm font-medium whitespace-nowrap transition-all ${isActive
-                                            ? 'bg-accent-light text-accent'
-                                            : 'text-muted-foreground hover:text-foreground hover:bg-muted'
+                                        ? 'bg-accent-light text-accent'
+                                        : 'text-muted-foreground hover:text-foreground hover:bg-muted'
                                         }`}
                                 >
                                     <Icon size={18} />
