@@ -91,7 +91,7 @@ export default function ContactPage() {
                     <button
                         type="submit"
                         disabled={loading}
-                        className="w-full sm:w-auto flex items-center justify-center gap-2 px-8 py-3 bg-accent hover:bg-accent-hover text-white rounded-xl font-medium transition-all disabled:opacity-60"
+                        className="w-full sm:w-auto flex items-center justify-center gap-2 px-8 py-3 bg-accent hover:bg-accent-hover text-accent-foreground rounded-xl font-medium transition-all disabled:opacity-60"
                     >
                         <LuSend size={16} />
                         {loading ? 'Sending...' : 'Send Message'}
@@ -102,7 +102,7 @@ export default function ContactPage() {
                     <p className="text-sm text-muted-foreground">
                         You can also reach us at{' '}
                         <a href="mailto:hello@thedividend.com" className="text-accent hover:underline font-medium">
-                            hello@thedividend.com
+                            jdruye@gmail.com
                         </a>
                     </p>
                 </div>

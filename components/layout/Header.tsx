@@ -84,7 +84,7 @@ export default function Header() {
                     {/* Logo */}
                     <Link href="/" className="flex items-center gap-2.5 group shrink-0">
                         <div className="w-9 h-9 rounded-lg bg-accent flex items-center justify-center transition-transform group-hover:scale-105">
-                            <span className="text-white font-bold text-lg font-serif">D</span>
+                            <span className="text-accent-foreground font-bold text-lg font-serif">D</span>
                         </div>
                         <span className="text-xl font-bold text-foreground font-serif tracking-tight hidden sm:inline">
                             {SITE_NAME}
@@ -136,7 +136,7 @@ export default function Header() {
                             >
                                 <LuBell size={20} />
                                 {unreadCount > 0 && (
-                                    <span className="absolute top-1 right-1 w-4.5 h-4.5 bg-accent text-white text-[10px] font-bold rounded-full flex items-center justify-center leading-none">
+                                    <span className="absolute top-1 right-1 w-4.5 h-4.5 bg-accent text-accent-foreground text-[10px] font-bold rounded-full flex items-center justify-center leading-none">
                                         {unreadCount > 9 ? '9+' : unreadCount}
                                     </span>
                                 )}
@@ -147,7 +147,7 @@ export default function Header() {
                         {isAdmin && (
                             <Link
                                 href="/admin/write"
-                                className="hidden sm:flex items-center gap-2 px-4 py-2 bg-accent hover:bg-accent-hover text-white rounded-lg text-sm font-medium transition-all duration-200"
+                                className="hidden sm:flex items-center gap-2 px-4 py-2 bg-accent hover:bg-accent-hover text-accent-background rounded-lg text-sm font-medium transition-all duration-200"
                             >
                                 <LuSquarePen size={16} />
                                 Write
@@ -214,7 +214,7 @@ export default function Header() {
                         ) : (
                             <Link
                                 href="/login"
-                                className="px-4 py-2 bg-accent hover:bg-accent-hover text-white rounded-lg text-sm font-medium transition-all duration-200"
+                                className="px-4 py-2 bg-accent hover:bg-accent-hover text-accent-foreground rounded-lg text-sm font-medium transition-all duration-200"
                             >
                                 Sign In
                             </Link>

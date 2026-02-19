@@ -62,7 +62,7 @@ export default function AdminDashboard() {
         { label: 'Total Posts', value: formatNumber(stats.totalPosts), icon: LuFileText, color: 'text-blue-500', bg: 'bg-blue-50' },
         { label: 'Total Books', value: formatNumber(stats.totalBooks), icon: LuBookOpen, color: 'text-green-500', bg: 'bg-green-50' },
         { label: 'Total Users', value: formatNumber(stats.totalUsers), icon: LuUsers, color: 'text-purple-500', bg: 'bg-purple-50' },
-        { label: 'Messages', value: formatNumber(stats.totalMessages), icon: LuMessageSquare, color: 'text-orange-500', bg: 'bg-orange-50' },
+        { label: 'Messages', value: formatNumber(stats.totalMessages), icon: LuMessageSquare, color: 'text-accent', bg: 'bg-accent-light' },
         { label: 'Revenue', value: `₦${formatNumber(stats.totalRevenue)}`, icon: LuDollarSign, color: 'text-emerald-500', bg: 'bg-emerald-50' },
         { label: 'Total Views', value: formatNumber(stats.totalViews), icon: LuTrendingUp, color: 'text-rose-500', bg: 'bg-rose-50' },
     ];

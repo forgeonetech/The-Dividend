@@ -13,7 +13,7 @@ export default function Footer() {
                     <div className="md:col-span-2">
                         <Link href="/" className="flex items-center gap-2.5 mb-4">
                             <div className="w-9 h-9 rounded-lg bg-accent flex items-center justify-center">
-                                <span className="text-white font-bold text-lg font-serif">D</span>
+                                <span className="text-accent-foreground font-bold text-lg font-serif">D</span>
                             </div>
                             <span className="text-xl font-bold text-foreground font-serif tracking-tight">
                                 {SITE_NAME}
@@ -62,30 +62,26 @@ export default function Footer() {
                         <h3 className="font-semibold text-foreground text-sm mb-4 uppercase tracking-wider">Resources</h3>
                         <ul className="space-y-3">
                             <li>
-                                <Link href="/blog?category=investing" className="text-sm text-muted-foreground hover:text-accent transition-colors">
-                                    Investing
+                                <Link href="/blog?category=finance-and-investment" className="text-sm text-muted-foreground hover:text-accent transition-colors">
+                                    Finance & Investment
                                 </Link>
                             </li>
                             <li>
-                                <Link href="/blog?category=personal-finance" className="text-sm text-muted-foreground hover:text-accent transition-colors">
-                                    Personal Finance
+                                <Link href="/blog?category=productivity" className="text-sm text-muted-foreground hover:text-accent transition-colors">
+                                    Productivity
                                 </Link>
                             </li>
                             <li>
-                                <Link href="/blog?category=wealth-building" className="text-sm text-muted-foreground hover:text-accent transition-colors">
-                                    Wealth Building
+                                <Link href="/blog?category=realtionship-and-marriage" className="text-sm text-muted-foreground hover:text-accent transition-colors">
+                                    Relationship & Marriage
                                 </Link>
                             </li>
                             <li>
-                                <Link href="/blog?category=mindset" className="text-sm text-muted-foreground hover:text-accent transition-colors">
-                                    Mindset
+                                <Link href="/blog?category=book-insights" className="text-sm text-muted-foreground hover:text-accent transition-colors">
+                                    Book Insights
                                 </Link>
                             </li>
-                            <li>
-                                <Link href="/bookstore" className="text-sm text-muted-foreground hover:text-accent transition-colors">
-                                    Bookstore
-                                </Link>
-                            </li>
+
                         </ul>
                     </div>
                 </div>

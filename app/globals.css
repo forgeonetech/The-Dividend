@@ -3,6 +3,21 @@
 
 :root {
   /* Colors */
+  /* 
+   * PRIMARY THEME CONFIGURATION
+   * Change these variables to switch the theme color.
+   * To revert to Orange, use:
+   * --primary: #E97820;
+   * --primary-foreground: #FFFFFF;
+   * --primary-hover: #D4691A;
+   * --primary-light: #FFF7ED;
+   */
+  --primary: #000000;
+  --primary-foreground: #FFFFFF;
+  --primary-hover: #333333;
+  --primary-light: #F5F5F5;
+
+  /* Legacy Orange Palette (kept for reference) */
   --color-orange-50: #FFF7ED;
   --color-orange-100: #FFEDD5;
   --color-orange-200: #FED7AA;
@@ -31,9 +46,10 @@
   --muted: #F5F5F5;
   --muted-foreground: #737373;
   --border: #E5E5E5;
-  --accent: #E97820;
-  --accent-hover: #D4691A;
-  --accent-light: #FFF7ED;
+  --accent: var(--primary);
+  --accent-foreground: var(--primary-foreground);
+  --accent-hover: var(--primary-hover);
+  --accent-light: var(--primary-light);
   --card: #FFFFFF;
   --card-foreground: #171717;
   --success: #059669;
@@ -72,9 +88,17 @@
   --muted: #1A1A1A;
   --muted-foreground: #A3A3A3;
   --border: #2A2A2A;
-  --accent: #FB923C;
-  --accent-hover: #FDBA74;
-  --accent-light: #1C1007;
+
+  /* Dark Mode Primary Theme (Inverse) */
+  --primary: #FFFFFF;
+  --primary-foreground: #000000;
+  --primary-hover: #E5E5E5;
+  --primary-light: #262626;
+
+  --accent: var(--primary);
+  --accent-foreground: var(--primary-foreground);
+  --accent-hover: var(--primary-hover);
+  --accent-light: var(--primary-light);
   --card: #141414;
   --card-foreground: #EDEDED;
   --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
@@ -90,6 +114,7 @@
   --color-muted-foreground: var(--muted-foreground);
   --color-border: var(--border);
   --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
   --color-accent-hover: var(--accent-hover);
   --color-accent-light: var(--accent-light);
   --color-card: var(--card);

@@ -82,7 +82,7 @@ export default function AdminAnalyticsPage() {
                 </div>
                 <div className="bg-card border border-border rounded-xl p-4">
                     <div className="flex items-center gap-2 mb-2">
-                        <div className="w-8 h-8 rounded-lg bg-orange-50 text-orange-500 flex items-center justify-center">
+                        <div className="w-8 h-8 rounded-lg bg-accent-light text-accent flex items-center justify-center">
                             <LuBookmark size={16} />
                         </div>
                         <span className="text-xs text-muted-foreground">Bookmarks</span>

@@ -14,7 +14,7 @@ export const NAV_LINKS = [
 ] as const;
 
 export const CATEGORIES_COLORS: Record<string, string> = {
-    investing: '#E97820',
+    investing: '#000000',
     'personal-finance': '#2563EB',
     'wealth-building': '#059669',
     'systems-strategy': '#7C3AED',

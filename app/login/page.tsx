@@ -59,7 +59,7 @@ function LoginContent() {
                 <div className="text-center mb-8">
                     <Link href="/" className="inline-flex items-center gap-2 mb-6">
                         <div className="w-10 h-10 rounded-xl bg-accent flex items-center justify-center">
-                            <span className="text-white font-bold text-xl font-serif">D</span>
+                            <span className="text-accent-foreground font-bold text-xl font-serif">D</span>
                         </div>
                         <span className="text-2xl font-bold text-foreground font-serif">{SITE_NAME}</span>
                     </Link>
@@ -123,7 +123,7 @@ function LoginContent() {
                     <button
                         type="submit"
                         disabled={loading}
-                        className="w-full h-12 bg-accent hover:bg-accent-hover text-white rounded-xl font-medium transition-all disabled:opacity-60"
+                        className="w-full h-12 bg-accent hover:bg-accent-hover text-accent-foreground rounded-xl font-medium transition-all disabled:opacity-60"
                     >
                         {loading ? 'Signing in...' : 'Sign In'}
                     </button>

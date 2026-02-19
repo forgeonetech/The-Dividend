@@ -38,7 +38,7 @@ export default function CategoryPills() {
                 <Link
                     key={category.id}
                     href={`/blog?category=${category.slug}`}
-                    className="shrink-0 px-4 py-2 rounded-full text-sm font-medium bg-muted text-muted-foreground hover:text-foreground hover:bg-border transition-all flex items-center gap-1.5"
+                    className="shrink-0 px-4 py-2 rounded-full text-sm font-medium bg-muted text-foreground hover:text-foreground hover:bg-border transition-all flex items-center gap-1.5"
                 >
                     <span>{category.icon}</span>
                     {category.name}

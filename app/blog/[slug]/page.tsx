@@ -277,14 +277,15 @@ export default function ArticlePage() {
             <div className="max-w-4xl mx-auto px-4 py-20 text-center">
                 <h1 className="text-2xl font-serif font-bold text-foreground mb-4">Article Not Found</h1>
                 <p className="text-muted-foreground mb-8">The article you&apos;re looking for doesn&apos;t exist or has been removed.</p>
-                <Link href="/blog" className="px-6 py-3 bg-accent hover:bg-accent-hover text-white rounded-xl font-medium transition-all text-sm">
+                <Link href="/blog" className="px-6 py-3 bg-accent hover:bg-accent-hover text-accent-foreground rounded-xl font-medium transition-all text-sm">
                     Browse Articles
                 </Link>
             </div>
         );
     }
 
-    const categoryColor = article.category?.color || '#E97820';
+    const categoryColor = (!article.category?.color || article.category.color === '#E97820') ? 'var(--primary)' : article.category.color;
+    const isThemeColor = categoryColor === 'var(--primary)';
 
     return (
         <div className="relative">
@@ -309,7 +310,7 @@ export default function ArticlePage() {
                 <div className="bg-card border border-border rounded-2xl p-6 sm:p-8 shadow-lg mb-8">
                     {article.category && (
                         <span
-                            className="inline-block px-3 py-1 text-xs font-semibold rounded-md text-white mb-4"
+                            className={`inline-block px-3 py-1 text-xs font-semibold rounded-md mb-4 ${isThemeColor ? 'text-accent-foreground' : 'text-white'}`}
                             style={{ backgroundColor: categoryColor }}
                         >
                             {article.category.name}
@@ -474,7 +475,7 @@ export default function ArticlePage() {
                                                 <button
                                                     type="submit"
                                                     disabled={submitting || !commentInput.trim()}
-                                                    className="px-5 py-2 bg-accent hover:bg-accent-hover text-white rounded-lg text-sm font-medium transition-all disabled:opacity-50"
+                                                    className="px-5 py-2 bg-accent hover:bg-accent-hover text-accent-foreground rounded-lg text-sm font-medium transition-all disabled:opacity-50"
                                                 >
                                                     {submitting ? 'Posting...' : 'Post Comment'}
                                                 </button>

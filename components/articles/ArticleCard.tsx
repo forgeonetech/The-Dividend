@@ -51,7 +51,8 @@ export default function ArticleCard({ article, variant = 'default' }: ArticleCar
         }
     };
 
-    const categoryColor = article.category?.color || '#E97820';
+    const categoryColor = (!article.category?.color || article.category.color === '#E97820') ? 'var(--primary)' : article.category.color;
+    const isThemeColor = categoryColor === 'var(--primary)';
 
     if (variant === 'horizontal') {
         return (
@@ -116,7 +117,7 @@ export default function ArticleCard({ article, variant = 'default' }: ArticleCar
                     {/* Category badge */}
                     {article.category && (
                         <span
-                            className="absolute top-3 left-3 px-2.5 py-1 text-xs font-semibold rounded-md text-white"
+                            className={`absolute top-3 left-3 px-2.5 py-1 text-xs font-semibold rounded-md ${isThemeColor ? 'text-accent-foreground' : 'text-white'}`}
                             style={{ backgroundColor: categoryColor }}
                         >
                             {article.category.name}
@@ -126,7 +127,7 @@ export default function ArticleCard({ article, variant = 'default' }: ArticleCar
                     <button
                         onClick={toggleBookmark}
                         className={`absolute top-3 right-3 w-8 h-8 rounded-lg flex items-center justify-center transition-all ${isBookmarked
-                            ? 'bg-accent text-white'
+                            ? 'bg-accent text-accent-foreground'
                             : 'bg-white/80 text-gray-600 hover:bg-white hover:text-accent'
                             }`}
                     >

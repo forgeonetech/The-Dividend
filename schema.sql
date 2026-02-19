@@ -32,7 +32,7 @@ CREATE TABLE IF NOT EXISTS public.categories (
   name TEXT NOT NULL UNIQUE,
   slug TEXT NOT NULL UNIQUE,
   description TEXT DEFAULT '',
-  color TEXT DEFAULT '#E97820',
+  color TEXT DEFAULT '#000000',
   icon TEXT DEFAULT '',
   image_url TEXT DEFAULT '',
   post_count INTEGER NOT NULL DEFAULT 0,
@@ -414,7 +414,7 @@ CREATE TRIGGER set_updated_at BEFORE UPDATE ON public.comments FOR EACH ROW EXEC
 -- SEED CATEGORIES
 -- ============================================
 INSERT INTO public.categories (name, slug, description, color, icon) VALUES
-  ('Investing', 'investing', 'Long-term investment strategies and insights', '#E97820', '📈'),
+  ('Investing', 'investing', 'Long-term investment strategies and insights', '#000000', '📈'),
   ('Personal Finance', 'personal-finance', 'Managing your money wisely', '#2563EB', '💰'),
   ('Wealth Building', 'wealth-building', 'Building generational wealth', '#059669', '🏗️'),
   ('Systems & Strategy', 'systems-strategy', 'Frameworks for financial thinking', '#7C3AED', '⚙️'),
