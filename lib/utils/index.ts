@@ -58,8 +58,8 @@ export function formatNumber(num: number): string {
 /**
  * Format price
  */
-export function formatPrice(price: number, currency: string = '₦'): string {
-    return `${currency}${price.toLocaleString('en-NG', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+export function formatPrice(price: number, currency: string = '₵'): string {
+    return `${currency}${price.toLocaleString('en-GH', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
 }
 
 /**

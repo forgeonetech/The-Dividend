@@ -153,7 +153,7 @@ function AddBookForm({ onComplete }: { onComplete: () => void }) {
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                    <label className="block text-sm font-medium text-foreground mb-1">Price (₦) *</label>
+                    <label className="block text-sm font-medium text-foreground mb-1">Price (₵) *</label>
                     <input type="number" required value={price} onChange={(e) => setPrice(e.target.value)} min="0" step="0.01" className="w-full h-10 px-3 bg-muted border border-border rounded-lg text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-accent" />
                 </div>
                 <div>
